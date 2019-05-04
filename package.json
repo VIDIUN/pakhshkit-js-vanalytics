@@ -1,8 +1,8 @@
 {
-  "name": "@playkit-js/playkit-js-kanalytics",
+  "name": "@pakhshkit-js/pakhshkit-js-vanalytics",
   "version": "0.10.1",
   "description": "",
-  "main": "dist/playkit-kanalytics.js",
+  "main": "dist/pakhshkit-vanalytics.js",
   "scripts": {
     "clean": "rm -rf ./dist",
     "prebuild": "npm run clean",
@@ -66,8 +66,8 @@
     "lint-staged": "^7.2.0",
     "mocha": "^3.2.0",
     "mocha-cli": "^1.0.1",
-    "playkit-js": "https://github.com/kaltura/playkit-js.git#v0.29.0",
-    "playkit-js-providers": "https://github.com/kaltura/playkit-js-providers.git#v2.5.0",
+    "pakhshkit-js": "https://github.com/vidiun/pakhshkit-js.git#v0.29.0",
+    "pakhshkit-js-providers": "https://github.com/vidiun/pakhshkit-js-providers.git#v2.5.0",
     "prettier": "^1.13.7",
     "sinon": "^2.0.0",
     "sinon-chai": "^2.8.0",
@@ -77,29 +77,29 @@
     "webpack-dev-server": "latest"
   },
   "peerDependencies": {
-    "playkit-js": "https://github.com/kaltura/playkit-js.git#v0.29.0",
-    "playkit-js-providers": "https://github.com/kaltura/playkit-js-providers.git#v2.5.0"
+    "pakhshkit-js": "https://github.com/vidiun/pakhshkit-js.git#v0.29.0",
+    "pakhshkit-js-providers": "https://github.com/vidiun/pakhshkit-js-providers.git#v2.5.0"
   },
   "keywords": [
-    "kaltura",
+    "vidiun",
     "analytics",
     "QOE",
     "QOS",
     "player",
-    "playkit-js",
-    "playkit-js-kanalytics",
+    "pakhshkit-js",
+    "pakhshkit-js-vanalytics",
     "html5 player"
   ],
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kaltura/playkit-js-kanalytics.git"
+    "url": "git+https://github.com/vidiun/pakhshkit-js-vanalytics.git"
   },
   "bugs": {
-    "url": "https://github.com/kaltura/playkit-js-kanalytics/issues"
+    "url": "https://github.com/vidiun/pakhshkit-js-vanalytics/issues"
   },
-  "homepage": "https://github.com/kaltura/playkit-js-kanalytics#readme",
-  "kcc": {
-    "name": "playkit-kanalytics"
+  "homepage": "https://github.com/vidiun/pakhshkit-js-vanalytics#readme",
+  "vcc": {
+    "name": "pakhshkit-vanalytics"
   }
 }
