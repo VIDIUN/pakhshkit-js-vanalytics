@@ -61,7 +61,7 @@ export default class Event {
    */
   isFirstInSession: boolean;
   /**
-   * The kaltura application name
+   * The vidiun application name
    */
   applicationId: string;
   /**
