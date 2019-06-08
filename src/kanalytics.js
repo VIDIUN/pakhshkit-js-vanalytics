@@ -1,6 +1,6 @@
 //@flow
-import {BasePlugin} from 'playkit-js'
-import {OVPStatsService, RequestBuilder} from 'playkit-js-providers/dist/playkit-stats-service'
+import {BasePlugin} from 'pakhshkit-js'
+import {OVPStatsService, RequestBuilder} from 'pakhshkit-js-providers/dist/pakhshkit-stats-service'
 import EventTypes from './event-types'
 import Event from './event'
 
@@ -10,12 +10,12 @@ const LIVE: string = 'Live';
 /**
  * @classdesc
  */
-export default class KAnalytics extends BasePlugin {
+export default class VAnalytics extends BasePlugin {
   /**
    * @static
    */
   static defaultConfig: Object = {
-    serviceUrl: '//stats.kaltura.com/api_v3/index.php',
+    serviceUrl: '//stats.vidiun.com/api_v3/index.php',
     hasKanalony: false
   };
 
@@ -44,10 +44,10 @@ export default class KAnalytics extends BasePlugin {
    */
   _ended: boolean = false;
   /**
-   * The Kaltura session
+   * The Vidiun session
    * @private
    */
-  _ks: string = "";
+  _vs: string = "";
   /**
    * Indicate whether time percent event already sent
    * @private
@@ -77,7 +77,7 @@ export default class KAnalytics extends BasePlugin {
   reset(): void {
     this._hasSeeked = false;
     this._ended = false;
-    this._ks = "";
+    this._vs = "";
     this._timePercentEvent = {};
   }
 
@@ -204,7 +204,7 @@ export default class KAnalytics extends BasePlugin {
    * @return {Object} - The player params
    */
   get _playerParams(): Object {
-    this._ks = this.config.ks;
+    this._vs = this.config.vs;
     return {
       clientVer: this.config.playerVersion,
       entryId: this.config.entryId,
@@ -229,7 +229,7 @@ export default class KAnalytics extends BasePlugin {
     statsEvent.seek = this._hasSeeked;
     statsEvent.hasKanalony = this.config.hasKanalony;
     Object.assign(statsEvent, this._playerParams);
-    const request: RequestBuilder = OVPStatsService.collect(this.config.serviceUrl, this._ks, this.config.playerVersion, {"event": statsEvent});
+    const request: RequestBuilder = OVPStatsService.collect(this.config.serviceUrl, this._vs, this.config.playerVersion, {"event": statsEvent});
     request.doHttpRequest()
       .then(() => {
         this.logger.debug(`Analytics event sent `, statsEvent);
