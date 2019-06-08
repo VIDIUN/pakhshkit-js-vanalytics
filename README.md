@@ -1,19 +1,19 @@
-# PlayKit JS KAnalytics - Kaltura Analytics plugin for the [PlayKit JS Player]
+# PakhshKit JS VAnalytics - Vidiun Analytics plugin for the [PakhshKit JS Player]
 
-[![Build Status](https://travis-ci.org/kaltura/playkit-js-kanalytics.svg?branch=master)](https://travis-ci.org/kaltura/playkit-js-kanalytics)
+[![Build Status](https://travis-ci.org/vidiun/pakhshkit-js-vanalytics.svg?branch=master)](https://travis-ci.org/vidiun/pakhshkit-js-vanalytics)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-PlayKit JS KAnalytics plugin integrates Kaltura analytics with the [PlayKit JS Player].
+PakhshKit JS VAnalytics plugin integrates Vidiun analytics with the [PakhshKit JS Player].
 
-PlayKit JS KAnalytics is written in [ECMAScript6], statically analysed using [Flow] and transpiled in ECMAScript5 using [Babel].
+PakhshKit JS VAnalytics is written in [ECMAScript6], statically analysed using [Flow] and transpiled in ECMAScript5 using [Babel].
 
-More info about Kaltura Analytics:
+More info about Vidiun Analytics:
 
 - [Video-Analytics]
-- [Creating and tracking analytics KMC]
+- [Creating and tracking analytics VMC]
 
-[video-analytics]: https://corp.kaltura.com/Products/Features/Video-Analytics
-[creating and tracking analytics kmc]: https://knowledge.kaltura.com/creating-and-tracking-analytics-kmc-0
+[video-analytics]: https://corp.vidiun.com/Products/Features/Video-Analytics
+[creating and tracking analytics vmc]: https://knowledge.vidiun.com/creating-and-tracking-analytics-vmc-0
 [flow]: https://flow.org/
 [ecmascript6]: https://github.com/ericdouglas/ES6-Learning#articles--tutorials
 [babel]: https://babeljs.io
@@ -22,9 +22,9 @@ More info about Kaltura Analytics:
 
 ### Prerequisites
 
-The plugin requires [PlayKit JS Player] to be loaded first.
+The plugin requires [PakhshKit JS Player] to be loaded first.
 
-[playkit js player]: https://github.com/kaltura/playkit-js
+[pakhshkit js player]: https://github.com/vidiun/pakhshkit-js
 
 ### Installing
 
@@ -33,8 +33,8 @@ First, clone and run [yarn] to install dependencies:
 [yarn]: https://yarnpkg.com/lang/en/
 
 ```
-git clone https://github.com/kaltura/playkit-js-kanalytics.git
-cd playkit-js-kanalytics
+git clone https://github.com/vidiun/pakhshkit-js-vanalytics.git
+cd pakhshkit-js-vanalytics
 yarn install
 ```
 
@@ -51,21 +51,21 @@ yarn run build
 Finally, add the bundle as a script tag in your page, and initialize the player
 
 ```html
-<script type="text/javascript" src="/PATH/TO/FILE/playkit.js"></script>
-<script type="text/javascript" src="/PATH/TO/FILE/playkit-kanalytics.js"></script>
+<script type="text/javascript" src="/PATH/TO/FILE/pakhshkit.js"></script>
+<script type="text/javascript" src="/PATH/TO/FILE/pakhshkit-vanalytics.js"></script>
 <div id="player-placeholder" style="height:360px; width:640px">
 <script type="text/javascript">
 var playerContainer = document.querySelector("#player-placeholder");
 var config = {
  ...
  plugins: {
-   kanalytics: {
-     serviceUrl: 'http://stats.kaltura.com/api_v3/index.php'
+   vanalytics: {
+     serviceUrl: 'http://stats.vidiun.com/api_v3/index.php'
    }
  }
  ...
 };
-var player = playkit.core.loadPlayer(config);
+var player = pakhshkit.core.loadPlayer(config);
 playerContainer.appendChild(player.getView());
 player.play();
 </script>
@@ -75,7 +75,7 @@ player.play();
 
 | Settings   | Type   | Required           | Description                |
 | ---------- | ------ | ------------------ | -------------------------- |
-| serviceUrl | string | :white_check_mark: | The Kaltura API server url |
+| serviceUrl | string | :white_check_mark: | The Vidiun API server url |
 
 ## Running the tests
 
@@ -113,7 +113,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/kaltura/playkit-js-kanalytics/tags).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/vidiun/pakhshkit-js-vanalytics/tags).
 
 ## License
 

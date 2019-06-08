@@ -1,15 +1,15 @@
 // @flow
-import {registerPlugin} from 'playkit-js';
-import KAnalytics from './kanalytics';
+import {registerPlugin} from 'pakhshkit-js';
+import VAnalytics from './vanalytics';
 
 declare var __VERSION__: string;
 declare var __NAME__: string;
 
-export default KAnalytics;
+export default VAnalytics;
 export {__VERSION__ as VERSION, __NAME__ as NAME};
 
-const pluginName = 'kanalytics';
+const pluginName = 'vanalytics';
 /**
- * Register the plugin in the playkit-js plugin framework.
+ * Register the plugin in the pakhshkit-js plugin framework.
  */
-registerPlugin(pluginName, KAnalytics);
+registerPlugin(pluginName, VAnalytics);

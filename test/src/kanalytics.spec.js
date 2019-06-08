@@ -1,11 +1,11 @@
 import '../../src/index';
-import {loadPlayer} from 'playkit-js';
-import * as TestUtils from 'playkit-js/test/src/utils/test-utils';
+import {loadPlayer} from 'pakhshkit-js';
+import * as TestUtils from 'pakhshkit-js/test/src/utils/test-utils';
 
-describe('KAnalyticsPlugin', function() {
+describe('VAnalyticsPlugin', function() {
   let player, sandbox, sendSpy, config;
   const playerVersion = '1.2.3';
-  const ks =
+  const vs =
     'NTAwZjViZWZjY2NjNTRkNGEyMjU1MTg4OGE1NmUwNDljZWJkMzk1MXwxMDY4MjkyOzEwNjgyOTI7MTQ5MDE3NjE0NjswOzE0OTAwODk3NDYuMDIyNjswO3ZpZXc6Kix3aWRnZXQ6MTs7';
   const type = 'vod';
   const id = '1_rwbj3j0a';
@@ -18,7 +18,7 @@ describe('KAnalyticsPlugin', function() {
       id: id,
       session: {
         partnerID: pId,
-        ks: ks,
+        vs: vs,
         uiConfID: uId
       },
       sources: {
@@ -31,13 +31,13 @@ describe('KAnalyticsPlugin', function() {
         ]
       },
       plugins: {
-        kanalytics: {
+        vanalytics: {
           playerVersion: playerVersion,
           entryId: id,
           entryType: type,
           sessionId: sId,
           uiConfId: uId,
-          ks: ks,
+          vs: vs,
           partnerId: pId,
           referrer: document.URL
         }
@@ -53,12 +53,12 @@ describe('KAnalyticsPlugin', function() {
 
   describe('Basic Playback', function() {
     /**
-     * @param {string} ks - ks
+     * @param {string} vs - vs
      * @param {Object} event - event
      * @return {void}
      */
     function verifyPayloadProperties(payload) {
-      payload.ks.should.equal(ks);
+      payload.vs.should.equal(vs);
       const event = payload.event;
       event.clientVer.should.equal(playerVersion);
       event.partnerId.should.equal(pId);
@@ -308,7 +308,7 @@ describe('KAnalyticsPlugin', function() {
   });
 
   describe('Change Media', function() {
-    const cm_ks =
+    const cm_vs =
       'MGI3MzFmMmUwN2IyYmYzN2IxOGEzZjFjMTAzM2U4NTg5MTgyY2MyZnwxMDkxOzEwOTE7MTUwNjY5Mjc0MzswOzE1MDY2MDYzNDMuMTE0MjswO3ZpZXc6Kix3aWRnZXQ6MTs7';
     const cm_type = 'live';
     const cm_id = '1_fdsguh765';
@@ -320,7 +320,7 @@ describe('KAnalyticsPlugin', function() {
       id: cm_id,
       session: {
         partnerID: cm_pId,
-        ks: cm_ks,
+        vs: cm_vs,
         uiConfID: cm_uId
       },
       sources: {
@@ -333,13 +333,13 @@ describe('KAnalyticsPlugin', function() {
         ]
       },
       plugins: {
-        kanalytics: {
+        vanalytics: {
           playerVersion: playerVersion,
           entryId: cm_id,
           entryType: cm_type,
           sessionId: cm_sId,
           uiConfId: 654321,
-          ks: cm_ks,
+          vs: cm_vs,
           partnerId: 2046854,
           referrer: document.URL
         }
@@ -351,7 +351,7 @@ describe('KAnalyticsPlugin', function() {
      * @return {void}
      */
     function verifyPayloadProperties(payload) {
-      payload.ks.should.equal(cm_ks);
+      payload.vs.should.equal(cm_vs);
       const event = payload.event;
       event.clientVer.should.equal(playerVersion);
       event.partnerId.should.equal(cm_pId);
@@ -501,7 +501,7 @@ describe('KAnalyticsPlugin', function() {
       sendSpy = sandbox.spy(XMLHttpRequest.prototype, 'send');
     });
     it('should not send report if partner id is missing', done => {
-      config.plugins.kanalytics.partnerId = '';
+      config.plugins.vanalytics.partnerId = '';
       player = loadPlayer(config);
       player.ready().then(() => {
         sendSpy.callCount.should.equal(0);
@@ -511,7 +511,7 @@ describe('KAnalyticsPlugin', function() {
     });
 
     it('should not send report if entry id is missing', done => {
-      config.plugins.kanalytics.entryId = '';
+      config.plugins.vanalytics.entryId = '';
       player = loadPlayer(config);
       player.ready().then(() => {
         sendSpy.callCount.should.equal(0);
